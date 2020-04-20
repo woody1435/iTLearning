@@ -1,28 +1,3 @@
-/*
- * Copyright (c) 2002, 2013, Oracle and/or its affiliates. All rights reserved.
- * ORACLE PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.
- *
- *
- *
- *
- *
- *
- *
- *
- *
- *
- *
- *
- *
- *
- *
- *
- *
- *
- *
- *
- */
-
 package java.lang;
 
 import java.util.Arrays;
@@ -31,96 +6,8 @@ import java.util.HashMap;
 import java.util.Locale;
 
 /**
- * The {@code Character} class wraps a value of the primitive
- * type {@code char} in an object. An object of type
- * {@code Character} contains a single field whose type is
- * {@code char}.
- * <p>
- * In addition, this class provides several methods for determining
- * a character's category (lowercase letter, digit, etc.) and for converting
- * characters from uppercase to lowercase and vice versa.
- * <p>
- * Character information is based on the Unicode Standard, version 6.2.0.
- * <p>
- * The methods and data of class {@code Character} are defined by
- * the information in the <i>UnicodeData</i> file that is part of the
- * Unicode Character Database maintained by the Unicode
- * Consortium. This file specifies various properties including name
- * and general category for every defined Unicode code point or
- * character range.
- * <p>
- * The file and its description are available from the Unicode Consortium at:
- * <ul>
- * <li><a href="http://www.unicode.org">http://www.unicode.org</a>
- * </ul>
- *
- * <h3><a name="unicode">Unicode Character Representations</a></h3>
- *
- * <p>The {@code char} data type (and therefore the value that a
- * {@code Character} object encapsulates) are based on the
- * original Unicode specification, which defined characters as
- * fixed-width 16-bit entities. The Unicode Standard has since been
- * changed to allow for characters whose representation requires more
- * than 16 bits.  The range of legal <em>code point</em>s is now
- * U+0000 to U+10FFFF, known as <em>Unicode scalar value</em>.
- * (Refer to the <a
- * href="http://www.unicode.org/reports/tr27/#notation"><i>
- * definition</i></a> of the U+<i>n</i> notation in the Unicode
- * Standard.)
- *
- * <p><a name="BMP">The set of characters from U+0000 to U+FFFF</a> is
- * sometimes referred to as the <em>Basic Multilingual Plane (BMP)</em>.
- * <a name="supplementary">Characters</a> whose code points are greater
- * than U+FFFF are called <em>supplementary character</em>s.  The Java
- * platform uses the UTF-16 representation in {@code char} arrays and
- * in the {@code String} and {@code StringBuffer} classes. In
- * this representation, supplementary characters are represented as a pair
- * of {@code char} values, the first from the <em>high-surrogates</em>
- * range, (&#92;uD800-&#92;uDBFF), the second from the
- * <em>low-surrogates</em> range (&#92;uDC00-&#92;uDFFF).
- *
- * <p>A {@code char} value, therefore, represents Basic
- * Multilingual Plane (BMP) code points, including the surrogate
- * code points, or code units of the UTF-16 encoding. An
- * {@code int} value represents all Unicode code points,
- * including supplementary code points. The lower (least significant)
- * 21 bits of {@code int} are used to represent Unicode code
- * points and the upper (most significant) 11 bits must be zero.
- * Unless otherwise specified, the behavior with respect to
- * supplementary characters and surrogate {@code char} values is
- * as follows:
- *
- * <ul>
- * <li>The methods that only accept a {@code char} value cannot support
- * supplementary characters. They treat {@code char} values from the
- * surrogate ranges as undefined characters. For example,
- * {@code Character.isLetter('\u005CuD840')} returns {@code false}, even though
- * this specific value if followed by any low-surrogate value in a string
- * would represent a letter.
- *
- * <li>The methods that accept an {@code int} value support all
- * Unicode characters, including supplementary characters. For
- * example, {@code Character.isLetter(0x2F81A)} returns
- * {@code true} because the code point value represents a letter
- * (a CJK ideograph).
- * </ul>
- *
- * <p>In the Java SE API documentation, <em>Unicode code point</em> is
- * used for character values in the range between U+0000 and U+10FFFF,
- * and <em>Unicode code unit</em> is used for 16-bit
- * {@code char} values that are code units of the <em>UTF-16</em>
- * encoding. For more information on Unicode terminology, refer to the
- * <a href="http://www.unicode.org/glossary/">Unicode Glossary</a>.
- *
- * @author  Lee Boynton
- * @author  Guy Steele
- * @author  Akira Tanaka
- * @author  Martin Buchholz
- * @author  Ulf Zibis
- * @since   1.0
- */
-/**
-* @作用 作用描述
+* @作用 char包装类; 此外，该类还提供了几种方法来确定字符的类别（小写字母，数字等），
+ * 并将字符从大写转换为小写，反之亦然
 *
 * @原理 原理描述
 *
@@ -136,8 +23,6 @@ import java.util.Locale;
  *  d[1]='2';
  *   d[2]='3';
  * }
-*
-* @since 0.0.1
 *
 * @author woody
 */
@@ -4673,17 +4558,16 @@ class Character implements java.io.Serializable, Comparable<Character> {
     }
 
     /**
-     * Determines whether the specified code point is a valid
-     * <a href="http://www.unicode.org/glossary/#code_point">
-     * Unicode code point value</a>.
-     *
-     * @param  codePoint the Unicode code point to be tested
-     * @return {@code true} if the specified code point value is between
-     *         {@link #MIN_CODE_POINT} and
-     *         {@link #MAX_CODE_POINT} inclusive;
-     *         {@code false} otherwise.
-     * @since  1.5
-     */
+    * @作用 确定指定的代码点是否有效
+    *
+    * @原理 原理描述
+    *
+    * @备注 备注信息
+    *
+    * @since 0.0.1
+    *
+    * @author woody
+    */
     public static boolean isValidCodePoint(int codePoint) {
         // Optimized form of:
         //     codePoint >= MIN_CODE_POINT && codePoint <= MAX_CODE_POINT
@@ -4896,26 +4780,16 @@ class Character implements java.io.Serializable, Comparable<Character> {
     }
 
     /**
-     * Returns the code point at the given index of the
-     * {@code char} array. If the {@code char} value at
-     * the given index in the {@code char} array is in the
-     * high-surrogate range, the following index is less than the
-     * length of the {@code char} array, and the
-     * {@code char} value at the following index is in the
-     * low-surrogate range, then the supplementary code point
-     * corresponding to this surrogate pair is returned. Otherwise,
-     * the {@code char} value at the given index is returned.
-     *
-     * @param a the {@code char} array
-     * @param index the index to the {@code char} values (Unicode
-     * code units) in the {@code char} array to be converted
-     * @return the Unicode code point at the given index
-     * @exception NullPointerException if {@code a} is null.
-     * @exception IndexOutOfBoundsException if the value
-     * {@code index} is negative or not less than
-     * the length of the {@code char} array.
-     * @since  1.5
-     */
+    * @作用 返回CharSequence给定索引处的代码点
+    *
+    * @原理 原理描述
+    *
+    * @备注 备注信息
+    *
+    * @since 0.0.1
+    *
+    * @author woody
+    */
     public static int codePointAt(char[] a, int index) {
         return codePointAtImpl(a, index, a.length);
     }
@@ -5408,36 +5282,14 @@ class Character implements java.io.Serializable, Comparable<Character> {
     }
 
     /**
-     * Determines if the specified character is a lowercase character.
-     * <p>
-     * A character is lowercase if its general category type, provided
-     * by {@code Character.getType(ch)}, is
-     * {@code LOWERCASE_LETTER}, or it has contributory property
-     * Other_Lowercase as defined by the Unicode Standard.
-     * <p>
-     * The following are examples of lowercase characters:
-     * <blockquote><pre>
-     * a b c d e f g h i j k l m n o p q r s t u v w x y z
-     * '&#92;u00DF' '&#92;u00E0' '&#92;u00E1' '&#92;u00E2' '&#92;u00E3' '&#92;u00E4' '&#92;u00E5' '&#92;u00E6'
-     * '&#92;u00E7' '&#92;u00E8' '&#92;u00E9' '&#92;u00EA' '&#92;u00EB' '&#92;u00EC' '&#92;u00ED' '&#92;u00EE'
-     * '&#92;u00EF' '&#92;u00F0' '&#92;u00F1' '&#92;u00F2' '&#92;u00F3' '&#92;u00F4' '&#92;u00F5' '&#92;u00F6'
-     * '&#92;u00F8' '&#92;u00F9' '&#92;u00FA' '&#92;u00FB' '&#92;u00FC' '&#92;u00FD' '&#92;u00FE' '&#92;u00FF'
-     * </pre></blockquote>
-     * <p> Many other Unicode characters are lowercase too.
-     *
-     * <p><b>Note:</b> This method cannot handle <a
-     * href="#supplementary"> supplementary characters</a>. To support
-     * all Unicode characters, including supplementary characters, use
-     * the {@link #isLowerCase(int)} method.
-     *
-     * @param   ch   the character to be tested.
-     * @return  {@code true} if the character is lowercase;
-     *          {@code false} otherwise.
-     * @see     Character#isLowerCase(char)
-     * @see     Character#isTitleCase(char)
-     * @see     Character#toLowerCase(char)
-     * @see     Character#getType(char)
-     */
+    * @作用 确定指定的字符是否是小写字符。
+    *
+    * @原理 原理描述
+    *
+    * @备注 备注信息
+    *
+    * @author woody
+    */
     public static boolean isLowerCase(char ch) {
         return isLowerCase((int)ch);
     }
@@ -5658,64 +5510,31 @@ class Character implements java.io.Serializable, Comparable<Character> {
     }
 
     /**
-     * Determines if the specified character (Unicode code point) is a digit.
-     * <p>
-     * A character is a digit if its general category type, provided
-     * by {@link Character#getType(int) getType(codePoint)}, is
-     * {@code DECIMAL_DIGIT_NUMBER}.
-     * <p>
-     * Some Unicode character ranges that contain digits:
-     * <ul>
-     * <li>{@code '\u005Cu0030'} through {@code '\u005Cu0039'},
-     *     ISO-LATIN-1 digits ({@code '0'} through {@code '9'})
-     * <li>{@code '\u005Cu0660'} through {@code '\u005Cu0669'},
-     *     Arabic-Indic digits
-     * <li>{@code '\u005Cu06F0'} through {@code '\u005Cu06F9'},
-     *     Extended Arabic-Indic digits
-     * <li>{@code '\u005Cu0966'} through {@code '\u005Cu096F'},
-     *     Devanagari digits
-     * <li>{@code '\u005CuFF10'} through {@code '\u005CuFF19'},
-     *     Fullwidth digits
-     * </ul>
-     *
-     * Many other character ranges contain digits as well.
-     *
-     * @param   codePoint the character (Unicode code point) to be tested.
-     * @return  {@code true} if the character is a digit;
-     *          {@code false} otherwise.
-     * @see     Character#forDigit(int, int)
-     * @see     Character#getType(int)
-     * @since   1.5
-     */
+    * @作用 确定指定的字符是否是数字。
+    *
+    * @原理 原理描述
+    *
+    * @备注 备注信息
+    *
+    * @since 0.0.1
+    *
+    * @author woody
+    */
     public static boolean isDigit(int codePoint) {
         return getType(codePoint) == Character.DECIMAL_DIGIT_NUMBER;
     }
 
     /**
-     * Determines if a character is defined in Unicode.
-     * <p>
-     * A character is defined if at least one of the following is true:
-     * <ul>
-     * <li>It has an entry in the UnicodeData file.
-     * <li>It has a value in a range defined by the UnicodeData file.
-     * </ul>
-     *
-     * <p><b>Note:</b> This method cannot handle <a
-     * href="#supplementary"> supplementary characters</a>. To support
-     * all Unicode characters, including supplementary characters, use
-     * the {@link #isDefined(int)} method.
-     *
-     * @param   ch   the character to be tested
-     * @return  {@code true} if the character has a defined meaning
-     *          in Unicode; {@code false} otherwise.
-     * @see     Character#isDigit(char)
-     * @see     Character#isLetter(char)
-     * @see     Character#isLetterOrDigit(char)
-     * @see     Character#isLowerCase(char)
-     * @see     Character#isTitleCase(char)
-     * @see     Character#isUpperCase(char)
-     * @since   1.0.2
-     */
+    * @作用 确定字符是否以Unicode定义
+    *
+    * @原理 原理描述
+    *
+    * @备注 备注信息
+    *
+    * @since 0.0.1
+    *
+    * @author woody
+    */
     public static boolean isDefined(char ch) {
         return isDefined((int)ch);
     }
@@ -5745,40 +5564,16 @@ class Character implements java.io.Serializable, Comparable<Character> {
     }
 
     /**
-     * Determines if the specified character is a letter.
-     * <p>
-     * A character is considered to be a letter if its general
-     * category type, provided by {@code Character.getType(ch)},
-     * is any of the following:
-     * <ul>
-     * <li> {@code UPPERCASE_LETTER}
-     * <li> {@code LOWERCASE_LETTER}
-     * <li> {@code TITLECASE_LETTER}
-     * <li> {@code MODIFIER_LETTER}
-     * <li> {@code OTHER_LETTER}
-     * </ul>
-     *
-     * Not all letters have case. Many characters are
-     * letters but are neither uppercase nor lowercase nor titlecase.
-     *
-     * <p><b>Note:</b> This method cannot handle <a
-     * href="#supplementary"> supplementary characters</a>. To support
-     * all Unicode characters, including supplementary characters, use
-     * the {@link #isLetter(int)} method.
-     *
-     * @param   ch   the character to be tested.
-     * @return  {@code true} if the character is a letter;
-     *          {@code false} otherwise.
-     * @see     Character#isDigit(char)
-     * @see     Character#isJavaIdentifierStart(char)
-     * @see     Character#isJavaLetter(char)
-     * @see     Character#isJavaLetterOrDigit(char)
-     * @see     Character#isLetterOrDigit(char)
-     * @see     Character#isLowerCase(char)
-     * @see     Character#isTitleCase(char)
-     * @see     Character#isUnicodeIdentifierStart(char)
-     * @see     Character#isUpperCase(char)
-     */
+    * @作用 确定指定的字符是否是一个字母。
+    *
+    * @原理 原理描述
+    *
+    * @备注 备注信息
+    *
+    * @since 0.0.1
+    *
+    * @author woody
+    */
     public static boolean isLetter(char ch) {
         return isLetter((int)ch);
     }

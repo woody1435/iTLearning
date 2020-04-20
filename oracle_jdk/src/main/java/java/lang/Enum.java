@@ -55,10 +55,16 @@ import java.io.ObjectStreamException;
 public abstract class Enum<E extends Enum<E>>
         implements Comparable<E>, Serializable {
     /**
-     * The name of this enum constant, as declared in the enum declaration.
-     * Most programmers should use the {@link #toString} method rather than
-     * accessing this field.
-     */
+    * @作用 返回此枚举常量的名称，与其枚举声明中声明的完全相同。
+    *
+    * @原理 原理描述
+    *
+    * @备注 备注信息
+    *
+    * @since 0.0.1
+    *
+    * @author woody
+    */
     private final String name;
 
     /**
@@ -78,14 +84,16 @@ public abstract class Enum<E extends Enum<E>>
     }
 
     /**
-     * The ordinal of this enumeration constant (its position
-     * in the enum declaration, where the initial constant is assigned
-     * an ordinal of zero).
-     *
-     * Most programmers will have no use for this field.  It is designed
-     * for use by sophisticated enum-based data structures, such as
-     * {@link java.util.EnumSet} and {@link java.util.EnumMap}.
-     */
+    * @作用 返回此枚举常数的序数（其枚举声明中的位置，其中初始常数的序数为零）。
+    *
+    * @原理 原理描述
+    *
+    * @备注 备注信息
+    *
+    * @since 0.0.1
+    *
+    * @author woody
+    */
     private final int ordinal;
 
     /**

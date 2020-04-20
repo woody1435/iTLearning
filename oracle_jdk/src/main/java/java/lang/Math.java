@@ -24,84 +24,22 @@
  */
 
 package java.lang;
+import sun.misc.DoubleConsts;
+import sun.misc.FloatConsts;
+
 import java.util.Random;
 
-import sun.misc.FloatConsts;
-import sun.misc.DoubleConsts;
-
 /**
- * The class {@code Math} contains methods for performing basic
- * numeric operations such as the elementary exponential, logarithm,
- * square root, and trigonometric functions.
- *
- * <p>Unlike some of the numeric methods of class
- * {@code StrictMath}, all implementations of the equivalent
- * functions of class {@code Math} are not defined to return the
- * bit-for-bit same results.  This relaxation permits
- * better-performing implementations where strict reproducibility is
- * not required.
- *
- * <p>By default many of the {@code Math} methods simply call
- * the equivalent method in {@code StrictMath} for their
- * implementation.  Code generators are encouraged to use
- * platform-specific native libraries or microprocessor instructions,
- * where available, to provide higher-performance implementations of
- * {@code Math} methods.  Such higher-performance
- * implementations still must conform to the specification for
- * {@code Math}.
- *
- * <p>The quality of implementation specifications concern two
- * properties, accuracy of the returned result and monotonicity of the
- * method.  Accuracy of the floating-point {@code Math} methods is
- * measured in terms of <i>ulps</i>, units in the last place.  For a
- * given floating-point format, an {@linkplain #ulp(double) ulp} of a
- * specific real number value is the distance between the two
- * floating-point values bracketing that numerical value.  When
- * discussing the accuracy of a method as a whole rather than at a
- * specific argument, the number of ulps cited is for the worst-case
- * error at any argument.  If a method always has an error less than
- * 0.5 ulps, the method always returns the floating-point number
- * nearest the exact result; such a method is <i>correctly
- * rounded</i>.  A correctly rounded method is generally the best a
- * floating-point approximation can be; however, it is impractical for
- * many floating-point methods to be correctly rounded.  Instead, for
- * the {@code Math} class, a larger error bound of 1 or 2 ulps is
- * allowed for certain methods.  Informally, with a 1 ulp error bound,
- * when the exact result is a representable number, the exact result
- * should be returned as the computed result; otherwise, either of the
- * two floating-point values which bracket the exact result may be
- * returned.  For exact results large in magnitude, one of the
- * endpoints of the bracket may be infinite.  Besides accuracy at
- * individual arguments, maintaining proper relations between the
- * method at different arguments is also important.  Therefore, most
- * methods with more than 0.5 ulp errors are required to be
- * <i>semi-monotonic</i>: whenever the mathematical function is
- * non-decreasing, so is the floating-point approximation, likewise,
- * whenever the mathematical function is non-increasing, so is the
- * floating-point approximation.  Not all approximations that have 1
- * ulp accuracy will automatically meet the monotonicity requirements.
- *
- * <p>
- * The platform uses signed two's complement integer arithmetic with
- * int and long primitive types.  The developer should choose
- * the primitive type to ensure that arithmetic operations consistently
- * produce correct results, which in some cases means the operations
- * will not overflow the range of values of the computation.
- * The best practice is to choose the primitive type and algorithm to avoid
- * overflow. In cases where the size is {@code int} or {@code long} and
- * overflow errors need to be detected, the methods {@code addExact},
- * {@code subtractExact}, {@code multiplyExact}, and {@code toIntExact}
- * throw an {@code ArithmeticException} when the results overflow.
- * For other arithmetic operations such as divide, absolute value,
- * increment, decrement, and negation overflow occurs only with
- * a specific minimum or maximum value and should be checked against
- * the minimum or maximum as appropriate.
- *
- * @author  unascribed
- * @author  Joseph D. Darcy
- * @since   JDK1.0
- */
-
+* @作用 Math类包含执行基本数字运算的方法，如基本指数，对数，平方根和三角函数
+*
+* @原理 原理描述
+*
+* @备注 备注信息
+*
+* @since 0.0.1
+*
+* @author woody
+*/
 public final class Math {
 
     /**
@@ -123,18 +61,16 @@ public final class Math {
     public static final double PI = 3.14159265358979323846;
 
     /**
-     * Returns the trigonometric sine of an angle.  Special cases:
-     * <ul><li>If the argument is NaN or an infinity, then the
-     * result is NaN.
-     * <li>If the argument is zero, then the result is a zero with the
-     * same sign as the argument.</ul>
-     *
-     * <p>The computed result must be within 1 ulp of the exact result.
-     * Results must be semi-monotonic.
-     *
-     * @param   a   an angle, in radians.
-     * @return  the sine of the argument.
-     */
+    * @作用 返回的双曲正弦 double值。
+    *
+    * @原理 原理描述
+    *
+    * @备注 备注信息
+    *
+    * @since 0.0.1
+    *
+    * @author woody
+    */
     public static double sin(double a) {
         return StrictMath.sin(a); // default impl. delegates to StrictMath
     }

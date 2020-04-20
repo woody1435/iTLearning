@@ -46,6 +46,15 @@ package java.lang;
  * @jls 11.2 Compile-Time Checking of Exceptions
  * @since   JDK1.0
  */
+/**
+* @作用 Error 用来指示运行时环境发生的错误; 程序通常不捕获
+*
+* @原理 原理描述
+*
+* @备注 备注信息
+*
+* @author woody
+*/
 public class Error extends Throwable {
     static final long serialVersionUID = 4980196508277280342L;
 

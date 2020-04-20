@@ -28,54 +28,16 @@ import java.util.Random;
 import sun.misc.DoubleConsts;
 
 /**
- * The class {@code StrictMath} contains methods for performing basic
- * numeric operations such as the elementary exponential, logarithm,
- * square root, and trigonometric functions.
- *
- * <p>To help ensure portability of Java programs, the definitions of
- * some of the numeric functions in this package require that they
- * produce the same results as certain published algorithms. These
- * algorithms are available from the well-known network library
- * {@code netlib} as the package "Freely Distributable Math
- * Library," <a
- * href="ftp://ftp.netlib.org/fdlibm.tar">{@code fdlibm}</a>. These
- * algorithms, which are written in the C programming language, are
- * then to be understood as executed with all floating-point
- * operations following the rules of Java floating-point arithmetic.
- *
- * <p>The Java math library is defined with respect to
- * {@code fdlibm} version 5.3. Where {@code fdlibm} provides
- * more than one definition for a function (such as
- * {@code acos}), use the "IEEE 754 core function" version
- * (residing in a file whose name begins with the letter
- * {@code e}).  The methods which require {@code fdlibm}
- * semantics are {@code sin}, {@code cos}, {@code tan},
- * {@code asin}, {@code acos}, {@code atan},
- * {@code exp}, {@code log}, {@code log10},
- * {@code cbrt}, {@code atan2}, {@code pow},
- * {@code sinh}, {@code cosh}, {@code tanh},
- * {@code hypot}, {@code expm1}, and {@code log1p}.
- *
- * <p>
- * The platform uses signed two's complement integer arithmetic with
- * int and long primitive types.  The developer should choose
- * the primitive type to ensure that arithmetic operations consistently
- * produce correct results, which in some cases means the operations
- * will not overflow the range of values of the computation.
- * The best practice is to choose the primitive type and algorithm to avoid
- * overflow. In cases where the size is {@code int} or {@code long} and
- * overflow errors need to be detected, the methods {@code addExact},
- * {@code subtractExact}, {@code multiplyExact}, and {@code toIntExact}
- * throw an {@code ArithmeticException} when the results overflow.
- * For other arithmetic operations such as divide, absolute value,
- * increment, decrement, and negation overflow occurs only with
- * a specific minimum or maximum value and should be checked against
- * the minimum or maximum as appropriate.
- *
- * @author  unascribed
- * @author  Joseph D. Darcy
- * @since   1.3
- */
+* @作用 StrictMath类包含执行基本数字运算的方法，如基本指数，对数，平方根和三角函数
+*
+* @原理 原理描述
+*
+* @备注 很多都是本地方法
+*
+* @since 0.0.1
+*
+* @author woody
+*/
 
 public final class StrictMath {
 

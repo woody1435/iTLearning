@@ -26,40 +26,29 @@
 package java.lang;
 
 /**
- * The abstract class {@code Number} is the superclass of platform
- * classes representing numeric values that are convertible to the
- * primitive types {@code byte}, {@code double}, {@code float}, {@code
- * int}, {@code long}, and {@code short}.
- *
- * The specific semantics of the conversion from the numeric value of
- * a particular {@code Number} implementation to a given primitive
- * type is defined by the {@code Number} implementation in question.
- *
- * For platform classes, the conversion is often analogous to a
- * narrowing primitive conversion or a widening primitive conversion
- * as defining in <cite>The Java&trade; Language Specification</cite>
- * for converting between primitive types.  Therefore, conversions may
- * lose information about the overall magnitude of a numeric value, may
- * lose precision, and may even return a result of a different sign
- * than the input.
- *
- * See the documentation of a given {@code Number} implementation for
- * conversion details.
- *
- * @author      Lee Boynton
- * @author      Arthur van Hoff
- * @jls 5.1.2 Widening Primitive Conversions
- * @jls 5.1.3 Narrowing Primitive Conversions
- * @since   JDK1.0
- */
+* @作用 抽象类Number是表示数字值可转换为基本数据类型平台类的超类byte ， double ， float ， int ， long和short
+*
+* @原理 原理描述
+*
+* @备注
+ * abstract，目的是让子类对其进行扩充；不能同时被final、static修饰
+*
+* @since 0.0.1
+*
+* @author woody
+*/
 public abstract class Number implements java.io.Serializable {
     /**
-     * Returns the value of the specified number as an {@code int},
-     * which may involve rounding or truncation.
-     *
-     * @return  the numeric value represented by this object after conversion
-     *          to type {@code int}.
-     */
+    * @作用 抽象方法，Number子类转换成int类型
+    *
+    * @原理 原理描述
+    *
+    * @备注 备注信息
+    *
+    * @since 0.0.1
+    *
+    * @author woody
+    */
     public abstract int intValue();
 
     /**

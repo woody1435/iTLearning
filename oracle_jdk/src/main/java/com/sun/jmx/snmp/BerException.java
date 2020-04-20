@@ -31,14 +31,14 @@ package com.sun.jmx.snmp;
 
 
 /**
- * Exception thrown when a BER encoding/decoding error occurs.
- *
- * <p><b>This API is a Sun Microsystems internal API  and is subject
- * to change without notice.</b></p>
- *
- * @since 1.5
- */
-
+* @作用 发生BER编码/解码错误时引发异常。
+*
+* @原理 原理描述
+*
+* @备注 备注信息
+*
+* @author woody
+*/
 public class BerException extends Exception {
   private static final long serialVersionUID = 494709767137042951L;
 
