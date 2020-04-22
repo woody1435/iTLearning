@@ -1,8 +1,7 @@
-**正在学习中的框架、工具、语言等，大家可以从对应项目模块中查找看看是否对自己有用的用法、文档、注释...**
+**正在学习中的框架、工具等，大家可以从对应项目模块中查找看看是否对自己有用的用法、文档、注释...**
 + apach_poi：excel、word、pdf操作工具
 + apach_svn：版本控制
 + axure_axure：原型工具
-+ english：英语学习
 + glassFish_servlet：servlet-api源码学习
 + hutool：实用工具框架
 + intellij-idea：智能代码编辑器
