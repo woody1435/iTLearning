@@ -9,11 +9,11 @@
     <packaging>pom</packaging>
     <version>0.0.1-SNAPSHOT</version>
     <modules>
-        <module>sun_jdk</module>
+        <module>oracle_jdk</module>
         <module>hutool_hutool-all</module>
         <module>junit</module>
-        <module>apach_poi</module>
-        <module>sun_servlet</module>
+        <module>apache_poi</module>
+        <module>glassFish_servlet</module>
     </modules>
 
 
