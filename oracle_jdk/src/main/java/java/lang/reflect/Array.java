@@ -26,15 +26,15 @@
 package java.lang.reflect;
 
 /**
- * The {@code Array} class provides static methods to dynamically create and
- * access Java arrays.
- *
- * <p>{@code Array} permits widening conversions to occur during a get or set
- * operation, but throws an {@code IllegalArgumentException} if a narrowing
- * conversion would occur.
- *
- * @author Nakul Saraiya
- */
+* @作用 提供静态方法来动态创建和访问Java数组
+*
+* @原理 原理描述
+*
+* @备注
+ * final 无法继承；
+*
+* @author woody
+*/
 public final
 class Array {
 
@@ -44,138 +44,78 @@ class Array {
     private Array() {}
 
     /**
-     * Creates a new array with the specified component type and
-     * length.
-     * Invoking this method is equivalent to creating an array
-     * as follows:
-     * <blockquote>
-     * <pre>
-     * int[] x = {length};
-     * Array.newInstance(componentType, x);
-     * </pre>
-     * </blockquote>
-     *
-     * <p>The number of dimensions of the new array must not
-     * exceed 255.
-     *
-     * @param componentType the {@code Class} object representing the
-     * component type of the new array
-     * @param length the length of the new array
-     * @return the new array
-     * @exception NullPointerException if the specified
-     * {@code componentType} parameter is null
-     * @exception IllegalArgumentException if componentType is {@link
-     * Void#TYPE} or if the number of dimensions of the requested array
-     * instance exceed 255.
-     * @exception NegativeArraySizeException if the specified {@code length}
-     * is negative
-     */
+    * @作用 创建具有指定组件类型和长度的新数组
+    *
+    * @原理 原理描述
+    *
+    * @备注 备注信息
+    *
+    * @author woody
+    */
     public static Object newInstance(Class<?> componentType, int length)
         throws NegativeArraySizeException {
         return newArray(componentType, length);
     }
 
     /**
-     * Creates a new array
-     * with the specified component type and dimensions.
-     * If {@code componentType}
-     * represents a non-array class or interface, the new array
-     * has {@code dimensions.length} dimensions and
-     * {@code componentType} as its component type. If
-     * {@code componentType} represents an array class, the
-     * number of dimensions of the new array is equal to the sum
-     * of {@code dimensions.length} and the number of
-     * dimensions of {@code componentType}. In this case, the
-     * component type of the new array is the component type of
-     * {@code componentType}.
-     *
-     * <p>The number of dimensions of the new array must not
-     * exceed 255.
-     *
-     * @param componentType the {@code Class} object representing the component
-     * type of the new array
-     * @param dimensions an array of {@code int} representing the dimensions of
-     * the new array
-     * @return the new array
-     * @exception NullPointerException if the specified
-     * {@code componentType} argument is null
-     * @exception IllegalArgumentException if the specified {@code dimensions}
-     * argument is a zero-dimensional array, if componentType is {@link
-     * Void#TYPE}, or if the number of dimensions of the requested array
-     * instance exceed 255.
-     * @exception NegativeArraySizeException if any of the components in
-     * the specified {@code dimensions} argument is negative.
-     */
+    * @作用 创建具有指定组件类型和维度的新数组
+    *
+    * @原理 原理描述
+    *
+    * @备注 备注信息
+    *
+    * @author woody
+    */
     public static Object newInstance(Class<?> componentType, int... dimensions)
         throws IllegalArgumentException, NegativeArraySizeException {
         return multiNewArray(componentType, dimensions);
     }
 
     /**
-     * Returns the length of the specified array object, as an {@code int}.
-     *
-     * @param array the array
-     * @return the length of the array
-     * @exception IllegalArgumentException if the object argument is not
-     * an array
-     */
+    * @作用 以int形式返回指定数组对象的长度。
+    *
+    * @原理 原理描述
+    *
+    * @备注 备注信息
+    *
+    * @author woody
+    */
     public static native int getLength(Object array)
         throws IllegalArgumentException;
 
     /**
-     * Returns the value of the indexed component in the specified
-     * array object.  The value is automatically wrapped in an object
-     * if it has a primitive type.
-     *
-     * @param array the array
-     * @param index the index
-     * @return the (possibly wrapped) value of the indexed component in
-     * the specified array
-     * @exception NullPointerException If the specified object is null
-     * @exception IllegalArgumentException If the specified object is not
-     * an array
-     * @exception ArrayIndexOutOfBoundsException If the specified {@code index}
-     * argument is negative, or if it is greater than or equal to the
-     * length of the specified array
-     */
+    * @作用 以对象形式返回指定数组对象中的索引组件的值。
+    *
+    * @原理 原理描述
+    *
+    * @备注 备注信息
+    *
+    * @author woody
+    */
     public static native Object get(Object array, int index)
         throws IllegalArgumentException, ArrayIndexOutOfBoundsException;
 
     /**
-     * Returns the value of the indexed component in the specified
-     * array object, as a {@code boolean}.
-     *
-     * @param array the array
-     * @param index the index
-     * @return the value of the indexed component in the specified array
-     * @exception NullPointerException If the specified object is null
-     * @exception IllegalArgumentException If the specified object is not
-     * an array, or if the indexed element cannot be converted to the
-     * return type by an identity or widening conversion
-     * @exception ArrayIndexOutOfBoundsException If the specified {@code index}
-     * argument is negative, or if it is greater than or equal to the
-     * length of the specified array
-     * @see Array#get
-     */
+    * @作用 以布尔值形式返回指定数组对象中的索引组件的值
+    *
+    * @原理 原理描述
+    *
+    * @备注 备注信息
+    *
+    * @author woody
+    */
     public static native boolean getBoolean(Object array, int index)
         throws IllegalArgumentException, ArrayIndexOutOfBoundsException;
 
     /**
-     * Returns the value of the indexed component in the specified
-     * array object, as a {@code byte}.
-     *
-     * @param array the array
-     * @param index the index
-     * @return the value of the indexed component in the specified array
-     * @exception NullPointerException If the specified object is null
-     * @exception IllegalArgumentException If the specified object is not
-     * an array, or if the indexed element cannot be converted to the
-     * return type by an identity or widening conversion
-     * @exception ArrayIndexOutOfBoundsException If the specified {@code index}
-     * argument is negative, or if it is greater than or equal to the
-     * length of the specified array
-     * @see Array#get
-     */
+    * @作用 以字节形式返回指定数组对象中的索引组件的值
+    *
+    * @原理 原理描述
+    *
+    * @备注 备注信息
+    *
+    * @author woody
+    */
     public static native byte getByte(Object array, int index)
         throws IllegalArgumentException, ArrayIndexOutOfBoundsException;
 
@@ -294,22 +234,14 @@ class Array {
         throws IllegalArgumentException, ArrayIndexOutOfBoundsException;
 
     /**
-     * Sets the value of the indexed component of the specified array
-     * object to the specified new value.  The new value is first
-     * automatically unwrapped if the array has a primitive component
-     * type.
-     * @param array the array
-     * @param index the index into the array
-     * @param value the new value of the indexed component
-     * @exception NullPointerException If the specified object argument
-     * is null
-     * @exception IllegalArgumentException If the specified object argument
-     * is not an array, or if the array component type is primitive and
-     * an unwrapping conversion fails
-     * @exception ArrayIndexOutOfBoundsException If the specified {@code index}
-     * argument is negative, or if it is greater than or equal to
-     * the length of the specified array
-     */
+    * @作用 将指定数组对象的索引组件的值设置为指定的新值
+    *
+    * @原理 原理描述
+    *
+    * @备注 备注信息
+    *
+    * @author woody
+    */
     public static native void set(Object array, int index, Object value)
         throws IllegalArgumentException, ArrayIndexOutOfBoundsException;
 

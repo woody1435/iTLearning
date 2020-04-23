@@ -38,7 +38,15 @@ import sun.misc.SharedSecrets;
  * @author   Mark Reinhold
  * @since    1.2
  */
-
+/**
+* @作用 abstract类
+*
+* @原理 原理描述
+*
+* @备注 Java.lang.ref 是 Java 类库中比较特殊的一个包，它提供了与 Java 垃圾回收器密切相关的引用类
+*
+* @author woody
+*/
 public abstract class Reference<T> {
 
     /* A Reference instance is in one of four possible internal states:
@@ -243,24 +251,27 @@ public abstract class Reference<T> {
     /* -- Referent accessor and setters -- */
 
     /**
-     * Returns this reference object's referent.  If this reference object has
-     * been cleared, either by the program or by the garbage collector, then
-     * this method returns <code>null</code>.
-     *
-     * @return   The object to which this reference refers, or
-     *           <code>null</code> if this reference object has been cleared
-     */
+    * @作用 返回此引用对象的引用
+    *
+    * @原理 原理描述
+    *
+    * @备注 备注信息
+    *
+    * @author woody
+    */
     public T get() {
         return this.referent;
     }
 
     /**
-     * Clears this reference object.  Invoking this method will not cause this
-     * object to be enqueued.
-     *
-     * <p> This method is invoked only by Java code; when the garbage collector
-     * clears references it does so directly, without invoking this method.
-     */
+    * @作用 清除此引用对象
+    *
+    * @原理 原理描述
+    *
+    * @备注 备注信息
+    *
+    * @author woody
+    */
     public void clear() {
         this.referent = null;
     }
@@ -269,14 +280,14 @@ public abstract class Reference<T> {
     /* -- Queue operations -- */
 
     /**
-     * Tells whether or not this reference object has been enqueued, either by
-     * the program or by the garbage collector.  If this reference object was
-     * not registered with a queue when it was created, then this method will
-     * always return <code>false</code>.
-     *
-     * @return   <code>true</code> if and only if this reference object has
-     *           been enqueued
-     */
+    * @作用 通过程序或垃圾收集器来告知这个引用对象是否已经入队
+    *
+    * @原理 原理描述
+    *
+    * @备注 备注信息
+    *
+    * @author woody
+    */
     public boolean isEnqueued() {
         return (this.queue == ReferenceQueue.ENQUEUED);
     }

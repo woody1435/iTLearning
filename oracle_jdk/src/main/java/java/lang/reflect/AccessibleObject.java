@@ -178,19 +178,28 @@ public class AccessibleObject implements AnnotatedElement {
         AccessController.doPrivileged(
             new sun.reflect.ReflectionFactory.GetReflectionFactoryAction());
 
-    /**
-     * @throws NullPointerException {@inheritDoc}
-     * @since 1.5
-     */
+    /***
+    * @作用 如果存在注解，则返回该元素的指定类型的注解，否则返回null。
+    *
+    * @原理 原理描述
+    *
+    * @备注 备注信息
+    *
+    * @author woody
+    */
     public <T extends Annotation> T getAnnotation(Class<T> annotationClass) {
         throw new AssertionError("All subclasses should override this method");
     }
 
     /**
-     * {@inheritDoc}
-     * @throws NullPointerException {@inheritDoc}
-     * @since 1.5
-     */
+    * @作用 如果此元素上存在指定类型的注解，则返回true，否则返回false。
+    *
+    * @原理 原理描述
+    *
+    * @备注 备注信息
+    *
+    * @author woody
+    */
     @Override
     public boolean isAnnotationPresent(Class<? extends Annotation> annotationClass) {
         return AnnotatedElement.super.isAnnotationPresent(annotationClass);
@@ -206,8 +215,14 @@ public class AccessibleObject implements AnnotatedElement {
     }
 
     /**
-     * @since 1.5
-     */
+    * @作用 返回此元素上存在的所有注解
+    *
+    * @原理 原理描述
+    *
+    * @备注 备注信息
+    *
+    * @author woody
+    */
     public Annotation[] getAnnotations() {
         return getDeclaredAnnotations();
     }
@@ -237,8 +252,14 @@ public class AccessibleObject implements AnnotatedElement {
     }
 
     /**
-     * @since 1.5
-     */
+    * @作用 返回此元素上直接存在的所有注解。
+    *
+    * @原理 原理描述
+    *
+    * @备注 备注信息
+    *
+    * @author woody
+    */
     public Annotation[] getDeclaredAnnotations()  {
         throw new AssertionError("All subclasses should override this method");
     }

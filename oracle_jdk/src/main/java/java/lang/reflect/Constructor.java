@@ -256,11 +256,14 @@ public final class Constructor<T> extends Executable {
     }
 
     /**
-     * Compares this {@code Constructor} against the specified object.
-     * Returns true if the objects are the same.  Two {@code Constructor} objects are
-     * the same if they were declared by the same class and have the
-     * same formal parameter types.
-     */
+    * @作用 将此构造函数与指定对象进行比较
+    *
+    * @原理 原理描述
+    *
+    * @备注 备注信息
+    *
+    * @author woody
+    */
     public boolean equals(Object obj) {
         if (obj != null && obj instanceof Constructor) {
             Constructor<?> other = (Constructor<?>)obj;

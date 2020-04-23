@@ -28,37 +28,28 @@ package java.lang.reflect;
 import sun.reflect.CallerSensitive;
 import sun.reflect.FieldAccessor;
 import sun.reflect.Reflection;
-import sun.reflect.generics.repository.FieldRepository;
-import sun.reflect.generics.factory.CoreReflectionFactory;
-import sun.reflect.generics.factory.GenericsFactory;
-import sun.reflect.generics.scope.ClassScope;
-import java.lang.annotation.Annotation;
-import java.util.Map;
-import java.util.Objects;
 import sun.reflect.annotation.AnnotationParser;
 import sun.reflect.annotation.AnnotationSupport;
 import sun.reflect.annotation.TypeAnnotation;
 import sun.reflect.annotation.TypeAnnotationParser;
+import sun.reflect.generics.factory.CoreReflectionFactory;
+import sun.reflect.generics.factory.GenericsFactory;
+import sun.reflect.generics.repository.FieldRepository;
+import sun.reflect.generics.scope.ClassScope;
+
+import java.lang.annotation.Annotation;
+import java.util.Map;
+import java.util.Objects;
 
 /**
- * A {@code Field} provides information about, and dynamic access to, a
- * single field of a class or an interface.  The reflected field may
- * be a class (static) field or an instance field.
- *
- * <p>A {@code Field} permits widening conversions to occur during a get or
- * set access operation, but throws an {@code IllegalArgumentException} if a
- * narrowing conversion would occur.
- *
- * @see Member
- * @see java.lang.Class
- * @see java.lang.Class#getFields()
- * @see java.lang.Class#getField(String)
- * @see java.lang.Class#getDeclaredFields()
- * @see java.lang.Class#getDeclaredField(String)
- *
- * @author Kenneth Russell
- * @author Nakul Saraiya
- */
+* @作用 提供有关类或接口的单个字段的信息和动态访问
+*
+* @原理 原理描述
+*
+* @备注 备注信息
+*
+* @author woody
+*/
 public final
 class Field extends AccessibleObject implements Member {
 
@@ -172,24 +163,27 @@ class Field extends AccessibleObject implements Member {
     }
 
     /**
-     * Returns the Java language modifiers for the field represented
-     * by this {@code Field} object, as an integer. The {@code Modifier} class should
-     * be used to decode the modifiers.
-     *
-     * @see Modifier
-     */
+    * @作用 返回由Field对象表示的字段的Java语言修饰符，以整数形式返回。
+    *
+    * @原理 原理描述
+    *
+    * @备注 备注信息
+    *
+    * @author woody
+    */
     public int getModifiers() {
         return modifiers;
     }
 
     /**
-     * Returns {@code true} if this field represents an element of
-     * an enumerated type; returns {@code false} otherwise.
-     *
-     * @return {@code true} if and only if this field represents an element of
-     * an enumerated type.
-     * @since 1.5
-     */
+    * @作用 如果字段表示枚举类型的元素，则返回true; 否则返回false。
+    *
+    * @原理 原理描述
+    *
+    * @备注 备注信息
+    *
+    * @author woody
+    */
     public boolean isEnumConstant() {
         return (getModifiers() & Modifier.ENUM) != 0;
     }
@@ -219,29 +213,14 @@ class Field extends AccessibleObject implements Member {
     }
 
     /**
-     * Returns a {@code Type} object that represents the declared type for
-     * the field represented by this {@code Field} object.
-     *
-     * <p>If the {@code Type} is a parameterized type, the
-     * {@code Type} object returned must accurately reflect the
-     * actual type parameters used in the source code.
-     *
-     * <p>If the type of the underlying field is a type variable or a
-     * parameterized type, it is created. Otherwise, it is resolved.
-     *
-     * @return a {@code Type} object that represents the declared type for
-     *     the field represented by this {@code Field} object
-     * @throws GenericSignatureFormatError if the generic field
-     *     signature does not conform to the format specified in
-     *     <cite>The Java&trade; Virtual Machine Specification</cite>
-     * @throws TypeNotPresentException if the generic type
-     *     signature of the underlying field refers to a non-existent
-     *     type declaration
-     * @throws MalformedParameterizedTypeException if the generic
-     *     signature of the underlying field refers to a parameterized type
-     *     that cannot be instantiated for any reason
-     * @since 1.5
-     */
+    * @作用 返回一个Type对象，该对象表示由Field对象表示的字段的声明类型。
+    *
+    * @原理 原理描述
+    *
+    * @备注 备注信息
+    *
+    * @author woody
+    */
     public Type getGenericType() {
         if (getGenericSignature() != null)
             return getGenericInfo().getGenericType();

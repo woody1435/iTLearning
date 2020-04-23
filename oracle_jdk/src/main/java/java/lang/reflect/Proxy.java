@@ -25,6 +25,13 @@
 
 package java.lang.reflect;
 
+import sun.misc.ProxyGenerator;
+import sun.misc.VM;
+import sun.reflect.CallerSensitive;
+import sun.reflect.Reflection;
+import sun.reflect.misc.ReflectUtil;
+import sun.security.util.SecurityConstants;
+
 import java.lang.ref.WeakReference;
 import java.security.AccessController;
 import java.security.PrivilegedAction;
@@ -34,12 +41,6 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.function.BiFunction;
-import sun.misc.ProxyGenerator;
-import sun.misc.VM;
-import sun.reflect.CallerSensitive;
-import sun.reflect.Reflection;
-import sun.reflect.misc.ReflectUtil;
-import sun.security.util.SecurityConstants;
 
 /**
  * {@code Proxy} provides static methods for creating dynamic proxy
@@ -225,6 +226,15 @@ import sun.security.util.SecurityConstants;
  * @see         InvocationHandler
  * @since       1.3
  */
+/**
+* @作用 提供用于创建动态代理类和实例的静态方法，它也是由这些方法创建的所有动态代理类的超类。
+*
+* @原理 原理描述
+*
+* @备注 备注信息
+*
+* @author woody
+*/
 public class Proxy implements java.io.Serializable {
 
     private static final long serialVersionUID = -2222568056686623797L;
@@ -655,50 +665,14 @@ public class Proxy implements java.io.Serializable {
     }
 
     /**
-     * Returns an instance of a proxy class for the specified interfaces
-     * that dispatches method invocations to the specified invocation
-     * handler.
-     *
-     * <p>{@code Proxy.newProxyInstance} throws
-     * {@code IllegalArgumentException} for the same reasons that
-     * {@code Proxy.getProxyClass} does.
-     *
-     * @param   loader the class loader to define the proxy class
-     * @param   interfaces the list of interfaces for the proxy class
-     *          to implement
-     * @param   h the invocation handler to dispatch method invocations to
-     * @return  a proxy instance with the specified invocation handler of a
-     *          proxy class that is defined by the specified class loader
-     *          and that implements the specified interfaces
-     * @throws  IllegalArgumentException if any of the restrictions on the
-     *          parameters that may be passed to {@code getProxyClass}
-     *          are violated
-     * @throws  SecurityException if a security manager, <em>s</em>, is present
-     *          and any of the following conditions is met:
-     *          <ul>
-     *          <li> the given {@code loader} is {@code null} and
-     *               the caller's class loader is not {@code null} and the
-     *               invocation of {@link SecurityManager#checkPermission
-     *               s.checkPermission} with
-     *               {@code RuntimePermission("getClassLoader")} permission
-     *               denies access;</li>
-     *          <li> for each proxy interface, {@code intf},
-     *               the caller's class loader is not the same as or an
-     *               ancestor of the class loader for {@code intf} and
-     *               invocation of {@link SecurityManager#checkPackageAccess
-     *               s.checkPackageAccess()} denies access to {@code intf};</li>
-     *          <li> any of the given proxy interfaces is non-public and the
-     *               caller class is not in the same {@linkplain Package runtime package}
-     *               as the non-public interface and the invocation of
-     *               {@link SecurityManager#checkPermission s.checkPermission} with
-     *               {@code ReflectPermission("newProxyInPackage.{package name}")}
-     *               permission denies access.</li>
-     *          </ul>
-     * @throws  NullPointerException if the {@code interfaces} array
-     *          argument or any of its elements are {@code null}, or
-     *          if the invocation handler, {@code h}, is
-     *          {@code null}
-     */
+    * @作用 返回指定接口的代理类的实例，该接口将方法调用分派给指定的调用处理程序。
+    *
+    * @原理 原理描述
+    *
+    * @备注 备注信息
+    *
+    * @author woody
+    */
     @CallerSensitive
     public static Object newProxyInstance(ClassLoader loader,
                                           Class<?>[] interfaces,
@@ -792,19 +766,14 @@ public class Proxy implements java.io.Serializable {
     }
 
     /**
-     * Returns the invocation handler for the specified proxy instance.
-     *
-     * @param   proxy the proxy instance to return the invocation handler for
-     * @return  the invocation handler for the proxy instance
-     * @throws  IllegalArgumentException if the argument is not a
-     *          proxy instance
-     * @throws  SecurityException if a security manager, <em>s</em>, is present
-     *          and the caller's class loader is not the same as or an
-     *          ancestor of the class loader for the invocation handler
-     *          and invocation of {@link SecurityManager#checkPackageAccess
-     *          s.checkPackageAccess()} denies access to the invocation
-     *          handler's class.
-     */
+    * @作用 返回指定代理实例的调用处理程序
+    *
+    * @原理 原理描述
+    *
+    * @备注 备注信息
+    *
+    * @author woody
+    */
     @CallerSensitive
     public static InvocationHandler getInvocationHandler(Object proxy)
         throws IllegalArgumentException

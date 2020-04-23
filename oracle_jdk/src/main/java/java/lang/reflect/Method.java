@@ -28,12 +28,13 @@ package java.lang.reflect;
 import sun.reflect.CallerSensitive;
 import sun.reflect.MethodAccessor;
 import sun.reflect.Reflection;
-import sun.reflect.generics.repository.MethodRepository;
+import sun.reflect.annotation.AnnotationParser;
+import sun.reflect.annotation.AnnotationType;
 import sun.reflect.generics.factory.CoreReflectionFactory;
 import sun.reflect.generics.factory.GenericsFactory;
+import sun.reflect.generics.repository.MethodRepository;
 import sun.reflect.generics.scope.MethodScope;
-import sun.reflect.annotation.AnnotationType;
-import sun.reflect.annotation.AnnotationParser;
+
 import java.lang.annotation.Annotation;
 import java.lang.annotation.AnnotationFormatError;
 import java.nio.ByteBuffer;
@@ -58,6 +59,15 @@ import java.nio.ByteBuffer;
  * @author Kenneth Russell
  * @author Nakul Saraiya
  */
+/**
+* @作用 描述方法的类
+*
+* @原理 原理描述
+*
+* @备注 备注信息
+*
+* @author woody
+*/
 public final class Method extends Executable {
     private Class<?>            clazz;
     private int                 slot;
@@ -195,8 +205,14 @@ public final class Method extends Executable {
     }
 
     /**
-     * {@inheritDoc}
-     */
+    * @作用 返回由此Method对象表示的方法的Java语言修饰符，以整数形式返回。
+    *
+    * @原理 原理描述
+    *
+    * @备注 备注信息
+    *
+    * @author woody
+    */
     @Override
     public int getModifiers() {
         return modifiers;
@@ -424,62 +440,14 @@ public final class Method extends Executable {
     }
 
     /**
-     * Invokes the underlying method represented by this {@code Method}
-     * object, on the specified object with the specified parameters.
-     * Individual parameters are automatically unwrapped to match
-     * primitive formal parameters, and both primitive and reference
-     * parameters are subject to method invocation conversions as
-     * necessary.
-     *
-     * <p>If the underlying method is static, then the specified {@code obj}
-     * argument is ignored. It may be null.
-     *
-     * <p>If the number of formal parameters required by the underlying method is
-     * 0, the supplied {@code args} array may be of length 0 or null.
-     *
-     * <p>If the underlying method is an instance method, it is invoked
-     * using dynamic method lookup as documented in The Java Language
-     * Specification, Second Edition, section 15.12.4.4; in particular,
-     * overriding based on the runtime type of the target object will occur.
-     *
-     * <p>If the underlying method is static, the class that declared
-     * the method is initialized if it has not already been initialized.
-     *
-     * <p>If the method completes normally, the value it returns is
-     * returned to the caller of invoke; if the value has a primitive
-     * type, it is first appropriately wrapped in an object. However,
-     * if the value has the type of an array of a primitive type, the
-     * elements of the array are <i>not</i> wrapped in objects; in
-     * other words, an array of primitive type is returned.  If the
-     * underlying method return type is void, the invocation returns
-     * null.
-     *
-     * @param obj  the object the underlying method is invoked from
-     * @param args the arguments used for the method call
-     * @return the result of dispatching the method represented by
-     * this object on {@code obj} with parameters
-     * {@code args}
-     *
-     * @exception IllegalAccessException    if this {@code Method} object
-     *              is enforcing Java language access control and the underlying
-     *              method is inaccessible.
-     * @exception IllegalArgumentException  if the method is an
-     *              instance method and the specified object argument
-     *              is not an instance of the class or interface
-     *              declaring the underlying method (or of a subclass
-     *              or implementor thereof); if the number of actual
-     *              and formal parameters differ; if an unwrapping
-     *              conversion for primitive arguments fails; or if,
-     *              after possible unwrapping, a parameter value
-     *              cannot be converted to the corresponding formal
-     *              parameter type by a method invocation conversion.
-     * @exception InvocationTargetException if the underlying method
-     *              throws an exception.
-     * @exception NullPointerException      if the specified object is null
-     *              and the method is an instance method.
-     * @exception ExceptionInInitializerError if the initialization
-     * provoked by this method fails.
-     */
+    * @作用 在具有指定参数的指定对象上调用此Method对象表示的底层方法
+    *
+    * @原理 原理描述
+    *
+    * @备注 备注信息
+    *
+    * @author woody
+    */
     @CallerSensitive
     public Object invoke(Object obj, Object... args)
         throws IllegalAccessException, IllegalArgumentException,
@@ -499,13 +467,14 @@ public final class Method extends Executable {
     }
 
     /**
-     * Returns {@code true} if this method is a bridge
-     * method; returns {@code false} otherwise.
-     *
-     * @return true if and only if this method is a bridge
-     * method as defined by the Java Language Specification.
-     * @since 1.5
-     */
+    * @作用 如果此方法是桥接方法，则返回true; 否则返回false
+    *
+    * @原理 原理描述
+    *
+    * @备注 备注信息
+    *
+    * @author woody
+    */
     public boolean isBridge() {
         return (getModifiers() & Modifier.BRIDGE) != 0;
     }

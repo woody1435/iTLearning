@@ -25,9 +25,9 @@
 
 package java.lang.reflect;
 
-import java.security.AccessController;
-import sun.reflect.LangReflectAccess;
 import sun.reflect.ReflectionFactory;
+
+import java.security.AccessController;
 
 /**
  * The Modifier class provides {@code static} methods and
@@ -43,6 +43,15 @@ import sun.reflect.ReflectionFactory;
  * @author Nakul Saraiya
  * @author Kenneth Russell
  */
+/**
+* @作用 提供了用于解码类和成员访问修饰符的静态方法和常量
+*
+* @原理 原理描述
+*
+* @备注 备注信息
+*
+* @author woody
+*/
 public class Modifier {
 
     /*
