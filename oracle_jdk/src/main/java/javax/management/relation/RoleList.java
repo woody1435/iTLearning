@@ -53,6 +53,15 @@ import java.util.List;
    the asList() method so you can write
        for (Role r : roleList.asList())
 */
+/**
+* @作用 RoleList表示角色列表（Role对象）。 在创建关系时用作参数，并且尝试在关系中设置多个角色时（通过'setRoles（）'方法）。 它作为RoleResult的一部分返回，以提供成功检索的角色。
+*
+* @原理 原理描述
+*
+* @备注 备注信息
+*
+* @author woody
+*/
 public class RoleList extends ArrayList<Object> {
 
     private transient boolean typeSafe;

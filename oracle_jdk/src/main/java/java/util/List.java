@@ -107,7 +107,15 @@ import java.util.function.UnaryOperator;
  * @see AbstractSequentialList
  * @since 1.2
  */
-
+/**
+* @作用 有序集合（也称为序列 ）。 该界面的用户可以精确控制列表中每个元素的插入位置。 用户可以通过整数索引（列表中的位置）访问元素，并搜索列表中的元素。
+*
+* @原理 原理描述
+*
+* @备注 备注信息
+*
+* @author woody
+*/
 public interface List<E> extends Collection<E> {
     // Query Operations
 
@@ -208,6 +216,15 @@ public interface List<E> extends Collection<E> {
      *         this list
      * @throws NullPointerException if the specified array is null
      */
+    /**
+    * @作用 以正确的顺序返回一个包含此列表中所有元素的数组（从第一个到最后一个元素）; 返回的数组的运行时类型是指定数组的运行时类型。
+    *
+    * @原理 原理描述
+    *
+    * @备注 备注信息
+    *
+    * @author woody
+    */
     <T> T[] toArray(T[] a);
 
 
@@ -235,6 +252,15 @@ public interface List<E> extends Collection<E> {
      * @throws IllegalArgumentException if some property of this element
      *         prevents it from being added to this list
      */
+    /**
+    * @作用 将指定的元素追加到此列表的末尾
+    *
+    * @原理 原理描述
+    *
+    * @备注 备注信息
+    *
+    * @author woody
+    */
     boolean add(E e);
 
     /**
@@ -472,6 +498,15 @@ public interface List<E> extends Collection<E> {
      *         contract
      * @since 1.8
      */
+    /**
+    * @作用 使用随附的 Comparator排序此列表来比较元素。
+    *
+    * @原理 原理描述
+    *
+    * @备注 备注信息
+    *
+    * @author woody
+    */
     @SuppressWarnings({"unchecked", "rawtypes"})
     default void sort(Comparator<? super E> c) {
         Object[] a = this.toArray();
@@ -561,6 +596,15 @@ public interface List<E> extends Collection<E> {
      * @throws IndexOutOfBoundsException if the index is out of range
      *         (<tt>index &lt; 0 || index &gt;= size()</tt>)
      */
+    /**
+    * @作用 用指定的元素（可选操作）替换此列表中指定位置的元素。
+    *
+    * @原理 原理描述
+    *
+    * @备注 备注信息
+    *
+    * @author woody
+    */
     E set(int index, E element);
 
     /**
@@ -582,6 +626,15 @@ public interface List<E> extends Collection<E> {
      * @throws IndexOutOfBoundsException if the index is out of range
      *         (<tt>index &lt; 0 || index &gt; size()</tt>)
      */
+    /**
+    * @作用 将指定的元素插入此列表中的指定位置（可选操作），此时，会自动将当前位置及只有的元素后移进行插入
+    *
+    * @原理 原理描述
+    *
+    * @备注 需要注意的是，参数index的值不可大于当前list的容量，即在使用此方法填充一个list时，必须以0开始依次填充
+    *
+    * @author woody
+    */
     void add(int index, E element);
 
     /**
@@ -705,6 +758,15 @@ public interface List<E> extends Collection<E> {
      *         (<tt>fromIndex &lt; 0 || toIndex &gt; size ||
      *         fromIndex &gt; toIndex</tt>)
      */
+    /**
+    * @作用 返回此列表中指定的 fromIndex （含）和 toIndex之间的视图。
+    *
+    * @原理 原理描述
+    *
+    * @备注 备注信息
+    *
+    * @author woody
+    */
     List<E> subList(int fromIndex, int toIndex);
 
     /**

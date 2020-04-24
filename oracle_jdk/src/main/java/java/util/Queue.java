@@ -141,6 +141,15 @@ package java.util;
  * @author Doug Lea
  * @param <E> the type of elements held in this collection
  */
+/**
+* @作用 Queue是一种先进先出(first-in-first-out) 的数据结构，除了基本的操作外，队列还提供了额外的插入、提取和检查操作。
+*
+* @原理 原理描述
+*
+* @备注 备注信息
+*
+* @author woody
+*/
 public interface Queue<E> extends Collection<E> {
     /**
      * Inserts the specified element into this queue if it is possible to do so
@@ -178,6 +187,15 @@ public interface Queue<E> extends Collection<E> {
      * @throws IllegalArgumentException if some property of this element
      *         prevents it from being added to this queue
      */
+    /**
+    * @作用 如果在不违反容量限制的情况下立即执行，则将指定的元素插入到此队列中。
+    *
+    * @原理 原理描述
+    *
+    * @备注 备注信息
+    *
+    * @author woody
+    */
     boolean offer(E e);
 
     /**
@@ -188,6 +206,15 @@ public interface Queue<E> extends Collection<E> {
      * @return the head of this queue
      * @throws NoSuchElementException if this queue is empty
      */
+    /**
+    * @作用 检索并删除此队列的头。
+    *
+    * @原理 原理描述
+    *
+    * @备注 备注信息
+    *
+    * @author woody
+    */
     E remove();
 
     /**
@@ -196,6 +223,15 @@ public interface Queue<E> extends Collection<E> {
      *
      * @return the head of this queue, or {@code null} if this queue is empty
      */
+    /**
+    * @作用 检索并删除此队列的头，如果此队列为空，则返回 null
+    *
+    * @原理 原理描述
+    *
+    * @备注 备注信息
+    *
+    * @author woody
+    */
     E poll();
 
     /**
@@ -206,6 +242,15 @@ public interface Queue<E> extends Collection<E> {
      * @return the head of this queue
      * @throws NoSuchElementException if this queue is empty
      */
+    /**
+    * @作用 检索，但不删除，这个队列的头。
+    *
+    * @原理 原理描述
+    *
+    * @备注 备注信息
+    *
+    * @author woody
+    */
     E element();
 
     /**
@@ -214,5 +259,14 @@ public interface Queue<E> extends Collection<E> {
      *
      * @return the head of this queue, or {@code null} if this queue is empty
      */
+    /**
+    * @作用 检索但不删除此队列的头，如果此队列为空，则返回 null 。
+    *
+    * @原理 原理描述
+    *
+    * @备注 备注信息
+    *
+    * @author woody
+    */
     E peek();
 }

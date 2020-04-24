@@ -42,12 +42,25 @@ import java.util.function.Consumer;
  * @since 1.5
  * @jls 14.14.2 The enhanced for statement
  */
+/**
+* @作用 实现此接口允许对象成为“for-each loop”语句的目标
+*
+* @原理 原理描述
+*
+* @备注 备注信息
+*
+* @author woody
+*/
 public interface Iterable<T> {
     /**
-     * Returns an iterator over elements of type {@code T}.
-     *
-     * @return an Iterator.
-     */
+    * @作用 返回类型为 T元素的迭代器。
+    *
+    * @原理 原理描述
+    *
+    * @备注 备注信息
+    *
+    * @author woody
+    */
     Iterator<T> iterator();
 
     /**
@@ -69,6 +82,15 @@ public interface Iterable<T> {
      * @throws NullPointerException if the specified action is null
      * @since 1.8
      */
+    /**
+    * @作用 对 Iterable的每个元素执行给定的操作，直到所有元素都被处理或动作引发异常
+    *
+    * @原理 原理描述
+    *
+    * @备注 1.8新增方法，传入一个Consumer对象
+    *
+    * @author woody
+    */
     default void forEach(Consumer<? super T> action) {
         Objects.requireNonNull(action);
         for (T t : this) {
@@ -97,6 +119,15 @@ public interface Iterable<T> {
      * {@code Iterable}.
      * @since 1.8
      */
+    /**
+    * @作用 在Iterable描述的元素上创建一个Iterable
+     *
+    * @原理 原理描述
+    *
+    * @备注 备注信息
+    *
+    * @author woody
+    */
     default Spliterator<T> spliterator() {
         return Spliterators.spliteratorUnknownSize(iterator(), 0);
     }

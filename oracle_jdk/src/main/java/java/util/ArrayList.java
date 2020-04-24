@@ -25,10 +25,11 @@
 
 package java.util;
 
+import sun.misc.SharedSecrets;
+
 import java.util.function.Consumer;
 import java.util.function.Predicate;
 import java.util.function.UnaryOperator;
-import sun.misc.SharedSecrets;
 
 /**
  * Resizable-array implementation of the <tt>List</tt> interface.  Implements
@@ -103,7 +104,15 @@ import sun.misc.SharedSecrets;
  * @see     Vector
  * @since   1.2
  */
-
+/**
+* @作用 可调整大小的数组的实现List接口
+*
+* @原理 原理描述
+*
+* @备注 备注信息
+*
+* @author woody
+*/
 public class ArrayList<E> extends AbstractList<E>
         implements List<E>, RandomAccess, Cloneable, java.io.Serializable
 {
@@ -191,6 +200,15 @@ public class ArrayList<E> extends AbstractList<E>
      * list's current size.  An application can use this operation to minimize
      * the storage of an <tt>ArrayList</tt> instance.
      */
+    /**
+    * @作用 修改这个 ArrayList实例的容量是列表的当前大小
+    *
+    * @原理 原理描述
+    *
+    * @备注 备注信息
+    *
+    * @author woody
+    */
     public void trimToSize() {
         modCount++;
         if (size < elementData.length) {
@@ -227,6 +245,15 @@ public class ArrayList<E> extends AbstractList<E>
         return minCapacity;
     }
 
+    /**
+    * @作用 如果需要，增加此 ArrayList实例的容量，以确保它可以至少保存最小容量参数指定的元素数
+    *
+    * @原理 原理描述
+    *
+    * @备注 备注信息
+    *
+    * @author woody
+    */
     private void ensureCapacityInternal(int minCapacity) {
         ensureExplicitCapacity(calculateCapacity(elementData, minCapacity));
     }
@@ -311,6 +338,15 @@ public class ArrayList<E> extends AbstractList<E>
      * <tt>(o==null&nbsp;?&nbsp;get(i)==null&nbsp;:&nbsp;o.equals(get(i)))</tt>,
      * or -1 if there is no such index.
      */
+    /**
+    * @作用 返回此列表中指定元素的第一次出现的索引，如果此列表不包含元素，则返回-1。
+    *
+    * @原理 原理描述
+    *
+    * @备注 备注信息
+    *
+    * @author woody
+    */
     public int indexOf(Object o) {
         if (o == null) {
             for (int i = 0; i < size; i++)
@@ -331,6 +367,15 @@ public class ArrayList<E> extends AbstractList<E>
      * <tt>(o==null&nbsp;?&nbsp;get(i)==null&nbsp;:&nbsp;o.equals(get(i)))</tt>,
      * or -1 if there is no such index.
      */
+    /**
+    * @作用 返回此列表中指定元素的最后一次出现的索引，如果此列表不包含元素，则返回-1。
+    *
+    * @原理 原理描述
+    *
+    * @备注 备注信息
+    *
+    * @author woody
+    */
     public int lastIndexOf(Object o) {
         if (o == null) {
             for (int i = size-1; i >= 0; i--)
@@ -350,6 +395,15 @@ public class ArrayList<E> extends AbstractList<E>
      *
      * @return a clone of this <tt>ArrayList</tt> instance
      */
+    /**
+    * @作用 返回此 ArrayList实例的浅拷贝。
+    *
+    * @原理 原理描述
+    *
+    * @备注 备注信息
+    *
+    * @author woody
+    */
     public Object clone() {
         try {
             ArrayList<?> v = (ArrayList<?>) super.clone();
@@ -429,6 +483,15 @@ public class ArrayList<E> extends AbstractList<E>
      * @return the element at the specified position in this list
      * @throws IndexOutOfBoundsException {@inheritDoc}
      */
+    /**
+    * @作用 返回此列表中指定位置的元素。
+    *
+    * @原理 原理描述
+    *
+    * @备注 备注信息
+    *
+    * @author woody
+    */
     public E get(int index) {
         rangeCheck(index);
 
@@ -444,6 +507,15 @@ public class ArrayList<E> extends AbstractList<E>
      * @return the element previously at the specified position
      * @throws IndexOutOfBoundsException {@inheritDoc}
      */
+    /**
+    * @作用 用指定的元素替换此列表中指定位置的元素。
+    *
+    * @原理 原理描述
+    *
+    * @备注 备注信息
+    *
+    * @author woody
+    */
     public E set(int index, E element) {
         rangeCheck(index);
 
@@ -492,6 +564,15 @@ public class ArrayList<E> extends AbstractList<E>
      * @return the element that was removed from the list
      * @throws IndexOutOfBoundsException {@inheritDoc}
      */
+    /**
+    * @作用 删除该列表中指定位置的元素。
+    *
+    * @原理 原理描述
+    *
+    * @备注 备注信息
+    *
+    * @author woody
+    */
     public E remove(int index) {
         rangeCheck(index);
 
@@ -520,6 +601,15 @@ public class ArrayList<E> extends AbstractList<E>
      * @param o element to be removed from this list, if present
      * @return <tt>true</tt> if this list contained the specified element
      */
+    /**
+    * @作用 从列表中删除指定元素的第一个出现（如果存在）。
+    *
+    * @原理 原理描述
+    *
+    * @备注 备注信息
+    *
+    * @author woody
+    */
     public boolean remove(Object o) {
         if (o == null) {
             for (int index = 0; index < size; index++)
@@ -632,6 +722,15 @@ public class ArrayList<E> extends AbstractList<E>
      *          toIndex > size() ||
      *          toIndex < fromIndex})
      */
+    /**
+    * @作用 从这个列表中删除所有索引在 fromIndex （含）和 toIndex之间的元素。
+    *
+    * @原理 原理描述
+    *
+    * @备注 备注信息
+    *
+    * @author woody
+    */
     protected void removeRange(int fromIndex, int toIndex) {
         modCount++;
         int numMoved = size - toIndex;
@@ -689,6 +788,15 @@ public class ArrayList<E> extends AbstractList<E>
      *         or if the specified collection is null
      * @see Collection#contains(Object)
      */
+    /**
+    * @作用 从此列表中删除指定集合中包含的所有元素。
+    *
+    * @原理 原理描述
+    *
+    * @备注 备注信息
+    *
+    * @author woody
+    */
     public boolean removeAll(Collection<?> c) {
         Objects.requireNonNull(c);
         return batchRemove(c, false);
@@ -710,6 +818,15 @@ public class ArrayList<E> extends AbstractList<E>
      *         or if the specified collection is null
      * @see Collection#contains(Object)
      */
+    /**
+    * @作用 仅保留此列表中包含在指定集合中的元素。
+    *
+    * @原理 原理描述
+    *
+    * @备注 备注信息
+    *
+    * @author woody
+    */
     public boolean retainAll(Collection<?> c) {
         Objects.requireNonNull(c);
         return batchRemove(c, true);
@@ -811,6 +928,15 @@ public class ArrayList<E> extends AbstractList<E>
      *
      * @throws IndexOutOfBoundsException {@inheritDoc}
      */
+    /**
+    * @作用 从列表中的指定位置开始，返回列表中的元素（按正确顺序）的列表迭代器。
+    *
+    * @原理 原理描述
+    *
+    * @备注 备注信息
+    *
+    * @author woody
+    */
     public ListIterator<E> listIterator(int index) {
         if (index < 0 || index > size)
             throw new IndexOutOfBoundsException("Index: "+index);
@@ -825,6 +951,15 @@ public class ArrayList<E> extends AbstractList<E>
      *
      * @see #listIterator(int)
      */
+    /**
+    * @作用 返回列表中的列表迭代器（按适当的顺序）。
+    *
+    * @原理 原理描述
+    *
+    * @备注 备注信息
+    *
+    * @author woody
+    */
     public ListIterator<E> listIterator() {
         return new ListItr(0);
     }

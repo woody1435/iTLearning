@@ -293,6 +293,15 @@ import java.util.function.LongConsumer;
  * @see Collection
  * @since 1.8
  */
+/**
+* @作用 用于遍历和分割源的元素的对象
+*
+* @原理 原理描述
+*
+* @备注 备注信息
+*
+* @author woody
+*/
 public interface Spliterator<T> {
     /**
      * If a remaining element exists, performs the given action on it,
@@ -322,6 +331,15 @@ public interface Spliterator<T> {
      * @param action The action
      * @throws NullPointerException if the specified action is null
      */
+    /**
+    * @作用 在当前线程中依次执行每个剩余元素的给定操作，直到所有元素都被处理或动作引发异常。
+    *
+    * @原理 原理描述
+    *
+    * @备注 备注信息
+    *
+    * @author woody
+    */
     default void forEachRemaining(Consumer<? super T> action) {
         do { } while (tryAdvance(action));
     }
@@ -367,6 +385,15 @@ public interface Spliterator<T> {
      * @return a {@code Spliterator} covering some portion of the
      * elements, or {@code null} if this spliterator cannot be split
      */
+    /**
+    * @作用 分割迭代器，每调用一次，将原来的迭代器等分为两份，并返回索引靠前的那一个子迭代器
+    *
+    * @原理 原理描述
+    *
+    * @备注 备注信息
+    *
+    * @author woody
+    */
     Spliterator<T> trySplit();
 
     /**
@@ -392,6 +419,15 @@ public interface Spliterator<T> {
      * @return the estimated size, or {@code Long.MAX_VALUE} if infinite,
      *         unknown, or too expensive to compute.
      */
+    /**
+    * @作用 返回 forEachRemaining(java.util.function.Consumer<? super T>)遍历将遇到的元素数量的估计，如果无穷大，未知数或计算 成本太高，则返回 Long.MAX_VALUE 。
+    *
+    * @原理 原理描述
+    *
+    * @备注 备注信息
+    *
+    * @author woody
+    */
     long estimateSize();
 
     /**
@@ -429,6 +465,15 @@ public interface Spliterator<T> {
      *
      * @return a representation of characteristics
      */
+    /**
+    * @作用 返回特征值，根据每个容器不同的性质，这个迭代器也对应了相应的特征量。
+    *
+    * @原理 原理描述
+    *
+    * @备注 备注信息
+    *
+    * @author woody
+    */
     int characteristics();
 
     /**

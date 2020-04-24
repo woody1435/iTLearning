@@ -64,5 +64,14 @@ package java.util;
  *
  * @since 1.4
  */
+/**
+* @作用 支持快速（通常为恒定时间）随机访问
+*
+* @原理 原理描述
+*
+* @备注 备注信息
+*
+* @author woody
+*/
 public interface RandomAccess {
 }

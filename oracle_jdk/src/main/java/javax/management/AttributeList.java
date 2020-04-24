@@ -27,9 +27,7 @@ package javax.management;
 
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.LinkedHashMap;
 import java.util.List;
-import java.util.Map;
 
 /**
  * <p>Represents a list of values for attributes of an MBean.  See the
@@ -61,6 +59,15 @@ import java.util.Map;
    implement two versions of a generic interface.  Instead we provide
    the asList() method so you can write
        for (Attribute a : attributeList.asList())
+*/
+/**
+* @作用 表示MBean属性值的列表
+*
+* @原理 原理描述
+*
+* @备注 备注信息
+*
+* @author woody
 */
 public class AttributeList extends ArrayList<Object> {
 

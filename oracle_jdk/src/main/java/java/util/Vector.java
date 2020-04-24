@@ -80,6 +80,15 @@ import java.util.function.UnaryOperator;
  * @see LinkedList
  * @since   JDK1.0
  */
+/**
+* @作用 Vector类实现了可扩展的对象数组。 像数组一样，它包含可以使用整数索引访问的组件。 但是， Vector的大小可以根据需要增长或缩小，以适应在创建Vector之后添加和删除项目。
+*
+* @原理 原理描述
+*
+* @备注 备注信息
+*
+* @author woody
+*/
 public class Vector<E>
     extends AbstractList<E>
     implements List<E>, RandomAccess, Cloneable, java.io.Serializable
@@ -112,6 +121,15 @@ public class Vector<E>
      *
      * @serial
      */
+    /**
+    * @作用 当矢量的大小大于其容量时，矢量的容量自动增加的量。
+    *
+    * @原理 原理描述
+    *
+    * @备注 备注信息
+    *
+    * @author woody
+    */
     protected int capacityIncrement;
 
     /** use serialVersionUID from JDK 1.0.2 for interoperability */
@@ -188,6 +206,15 @@ public class Vector<E>
      *         a runtime type that can be stored in the specified array
      * @see #toArray(Object[])
      */
+    /**
+    * @作用 将此向量的组件复制到指定的数组中。
+    *
+    * @原理 原理描述
+    *
+    * @备注 备注信息
+    *
+    * @author woody
+    */
     public synchronized void copyInto(Object[] anArray) {
         System.arraycopy(elementData, 0, anArray, 0, elementCount);
     }
@@ -302,6 +329,15 @@ public class Vector<E>
      *          data array, kept in the field {@code elementData}
      *          of this vector)
      */
+    /**
+    * @作用 返回此向量的当前容量。
+    *
+    * @原理 原理描述
+    *
+    * @备注 备注信息
+    *
+    * @author woody
+    */
     public synchronized int capacity() {
         return elementData.length;
     }

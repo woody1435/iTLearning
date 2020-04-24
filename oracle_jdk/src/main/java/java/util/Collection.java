@@ -140,7 +140,15 @@ import java.util.stream.StreamSupport;
  * @see     AbstractCollection
  * @since 1.2
  */
-
+/**
+* @作用 集合
+*
+* @原理 原理描述
+*
+* @备注 备注信息
+*
+* @author woody
+*/
 public interface Collection<E> extends Iterable<E> {
     // Query Operations
 
@@ -151,6 +159,15 @@ public interface Collection<E> extends Iterable<E> {
      *
      * @return the number of elements in this collection
      */
+    /**
+    * @作用 返回此集合中的元素数。
+    *
+    * @原理 原理描述
+    *
+    * @备注 备注信息
+    *
+    * @author woody
+    */
     int size();
 
     /**
@@ -158,6 +175,15 @@ public interface Collection<E> extends Iterable<E> {
      *
      * @return <tt>true</tt> if this collection contains no elements
      */
+    /**
+    * @作用 如果此集合不包含元素，则返回 true 。
+    *
+    * @原理 原理描述
+    *
+    * @备注 备注信息
+    *
+    * @author woody
+    */
     boolean isEmpty();
 
     /**
@@ -176,6 +202,15 @@ public interface Collection<E> extends Iterable<E> {
      *         collection does not permit null elements
      *         (<a href="#optional-restrictions">optional</a>)
      */
+    /**
+    * @作用 如果此集合包含指定的元素，则返回 true 。
+    *
+    * @原理 原理描述
+    *
+    * @备注 备注信息
+    *
+    * @author woody
+    */
     boolean contains(Object o);
 
     /**
@@ -186,6 +221,15 @@ public interface Collection<E> extends Iterable<E> {
      *
      * @return an <tt>Iterator</tt> over the elements in this collection
      */
+    /**
+    * @作用 返回此集合中的元素的迭代器。
+    *
+    * @原理 原理描述
+    *
+    * @备注 备注信息
+    *
+    * @author woody
+    */
     Iterator<E> iterator();
 
     /**
@@ -204,6 +248,15 @@ public interface Collection<E> extends Iterable<E> {
      *
      * @return an array containing all of the elements in this collection
      */
+    /**
+    * @作用 返回一个包含此集合中所有元素的数组。
+    *
+    * @原理 原理描述
+    *
+    * @备注 备注信息
+    *
+    * @author woody
+    */
     Object[] toArray();
 
     /**
@@ -249,6 +302,15 @@ public interface Collection<E> extends Iterable<E> {
      *         this collection
      * @throws NullPointerException if the specified array is null
      */
+    /**
+    * @作用 返回包含此集合中所有元素的数组; 返回的数组的运行时类型是指定数组的运行时类型
+    *
+    * @原理 原理描述
+    *
+    * @备注 备注信息
+    *
+    * @author woody
+    */
     <T> T[] toArray(T[] a);
 
     // Modification Operations
@@ -286,6 +348,15 @@ public interface Collection<E> extends Iterable<E> {
      * @throws IllegalStateException if the element cannot be added at this
      *         time due to insertion restrictions
      */
+    /**
+    * @作用 确保此集合包含指定的元素（可选操作）。
+    *
+    * @原理 原理描述
+    *
+    * @备注 备注信息
+    *
+    * @author woody
+    */
     boolean add(E e);
 
     /**
@@ -308,6 +379,15 @@ public interface Collection<E> extends Iterable<E> {
      * @throws UnsupportedOperationException if the <tt>remove</tt> operation
      *         is not supported by this collection
      */
+    /**
+    * @作用 从该集合中删除指定元素的单个实例（如果存在）（可选操作）。
+    *
+    * @原理 原理描述
+    *
+    * @备注 备注信息
+    *
+    * @author woody
+    */
     boolean remove(Object o);
 
 
@@ -331,6 +411,15 @@ public interface Collection<E> extends Iterable<E> {
      *         or if the specified collection is null.
      * @see    #contains(Object)
      */
+    /**
+    * @作用 如果此集合包含指定 集合中的所有元素，则返回true。
+    *
+    * @原理 原理描述
+    *
+    * @备注 备注信息
+    *
+    * @author woody
+    */
     boolean containsAll(Collection<?> c);
 
     /**
@@ -357,6 +446,15 @@ public interface Collection<E> extends Iterable<E> {
      *         this time due to insertion restrictions
      * @see #add(Object)
      */
+    /**
+    * @作用 将指定集合中的所有元素添加到此集合（可选操作）。
+    *
+    * @原理 原理描述
+    *
+    * @备注 备注信息
+    *
+    * @author woody
+    */
     boolean addAll(Collection<? extends E> c);
 
     /**
@@ -382,6 +480,15 @@ public interface Collection<E> extends Iterable<E> {
      * @see #remove(Object)
      * @see #contains(Object)
      */
+    /**
+    * @作用 删除指定集合中包含的所有此集合的元素（可选操作）。
+    *
+    * @原理 原理描述
+    *
+    * @备注 备注信息
+    *
+    * @author woody
+    */
     boolean removeAll(Collection<?> c);
 
     /**
@@ -441,15 +548,26 @@ public interface Collection<E> extends Iterable<E> {
      * @see #remove(Object)
      * @see #contains(Object)
      */
+    /**
+    * @作用 仅保留此集合中包含在指定集合中的元素
+    *
+    * @原理 原理描述
+    *
+    * @备注 备注信息
+    *
+    * @author woody
+    */
     boolean retainAll(Collection<?> c);
 
     /**
-     * Removes all of the elements from this collection (optional operation).
-     * The collection will be empty after this method returns.
-     *
-     * @throws UnsupportedOperationException if the <tt>clear</tt> operation
-     *         is not supported by this collection
-     */
+    * @作用 从此集合中删除所有元素（可选操作）。
+    *
+    * @原理 原理描述
+    *
+    * @备注 备注信息
+    *
+    * @author woody
+    */
     void clear();
 
 
@@ -488,6 +606,15 @@ public interface Collection<E> extends Iterable<E> {
      * @see Set#equals(Object)
      * @see List#equals(Object)
      */
+    /**
+    * @作用 将指定的对象与此集合进行比较以获得相等性。
+    *
+    * @原理 原理描述
+    *
+    * @备注 备注信息
+    *
+    * @author woody
+    */
     boolean equals(Object o);
 
     /**
@@ -598,6 +725,15 @@ public interface Collection<E> extends Iterable<E> {
      * collection
      * @since 1.8
      */
+    /**
+    * @作用 返回可能并行的 Stream与此集合作为其来源。
+    *
+    * @原理 原理描述
+    *
+    * @备注 备注信息
+    *
+    * @author woody
+    */
     default Stream<E> parallelStream() {
         return StreamSupport.stream(spliterator(), true);
     }
